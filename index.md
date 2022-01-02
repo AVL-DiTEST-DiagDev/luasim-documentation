@@ -143,7 +143,6 @@ You will then be able to use the function in that file in your simulation.
     Raw = {
         ["22 FA BC"] = "62 FA BC " .. toHex(17, 1)
     }
-}
 ```
 
 **Note:** The path to the included lua file is always relative to the first lua file that contains the simulation. That means, if you include a library that is located in a different directory and then include another library from that one, the path is still relative to the original lua file.
