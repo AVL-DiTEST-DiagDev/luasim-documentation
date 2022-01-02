@@ -160,3 +160,6 @@ When you need to share state between functions of requests, you can define globa
 * You can concatenate strings using two dots (..)
 
 You will find more about Lua and the syntax at https://www.lua.org/manual/5.1/
+
+## Protocol specific definitions
+* [ISO-TP protocols (e.g. UDS, KWP)](isotp)
