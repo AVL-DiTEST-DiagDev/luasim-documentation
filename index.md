@@ -26,7 +26,7 @@ PCM = { -- ECU name
     -- header
     RequestId = 0x100,
     ResponseId = 0x200,
-    BroadcastId = 0x300,
+    RequestFunctionalId = 0x300,
 
     -- UDS Request/Response pairs
     Raw = {
@@ -41,7 +41,7 @@ If you want to add a second ECU to the file, just start a new table underneath.
 PCM = {
     RequestId = 0x100,
     ResponseId = 0x200,
-    BroadcastId = 0x300,
+    RequestFunctionalId = 0x300,
 
     Raw = {
         ["10 02"] = "50 02 00 19 01 F4",
@@ -52,7 +52,7 @@ PCM = {
 BCM = {
     RequestId = 0x110,
     ResponseId = 0x210,
-    BroadcastId = 0x300,
+    RequestFunctionalId = 0x300,
 
     Raw = {
         ["10 02"] = "50 02 00 17 22 34",
@@ -163,3 +163,4 @@ You will find more about Lua and the syntax at https://www.lua.org/manual/5.1/
 
 ## Protocol specific definitions
 * [ISO-TP protocols (e.g. UDS, KWP)](isotp)
+* [J1939](j1939)
