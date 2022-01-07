@@ -10,6 +10,14 @@ With the Lua language underneath it is easy to simulate both, simple communicati
 
 Find more information about Lua at https://www.lua.org/
 
+## Supported Protocols
+This page defines the general syntax of the Lua Simulation Format with some protocol specific examples.
+
+Please find more about how to define protocol specific properties in the Lua simulation format here:
+* [ISO-TP protocols (e.g. UDS, KWP)](isotp)
+* [J1939](j1939)
+
+
 ## Simulation structure
 All simulation files need to have the extension **.lua** to make sure they are detected by the simulation engine.
 * A single file can describe one or more ECUs
@@ -191,7 +199,3 @@ PCM = {
 * You can concatenate strings using two dots (..)
 
 You will find more about Lua and the syntax at https://www.lua.org/manual/5.1/
-
-## Protocol specific definitions
-* [ISO-TP protocols (e.g. UDS, KWP)](isotp)
-* [J1939](j1939)
