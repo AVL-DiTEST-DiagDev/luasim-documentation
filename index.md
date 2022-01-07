@@ -11,7 +11,7 @@ With the Lua language underneath it is easy to simulate both, simple communicati
 Find more information about Lua at https://www.lua.org/
 
 ## Simulation structure
-All simulation files need ot have the extension **.lua** to make sure they are detected by the simulation engine.
+All simulation files need to have the extension **.lua** to make sure they are detected by the simulation engine.
 * A single file can describe one or more ECUs
 * One vehicle simulation can consist of one or multiple simulation files, the engine loads and interprets each one independenly.
 
@@ -147,7 +147,39 @@ You will then be able to use the function in that file in your simulation.
 **Note:** The path to the included lua file is always relative to the first lua file that contains the simulation. That means, if you include a library that is located in a different directory and then include another library from that one, the path is still relative to the original lua file.
 
 ## Global variables
-When you need to share state between functions of requests, you can define global variables in the lua file.
+When you need to share state between function calls of requests, you can define global variables in the lua file.
+
+```lua
+-- define global variables outside the ECU table
+ReadDTCResponse = "C0 01 81 28"
+EngineRPM = 1000
+
+-- ECU table starts here
+PCM = {
+   RequestId = 0x7E0,
+   ResponseId = 0x7E8,
+   RequestFunctionalId = 0x7DF,
+
+   Raw = {
+      ["3E 00"] = "7E",
+      ["19 02 AF"] = function () 
+			return "59 02 FA" .. ReadDTCResponse
+    	end,
+	  ["14 FF FF FF"] = function ()
+			ReadDTCResponse = "";
+			return "54";
+		end,
+	  ["22 D0 19"] = function ()
+		EngineRPM = EngineRPM + 10
+		if EngineRPM > 2000 then
+			EngineRPM = 1000
+		end
+				
+		return "62 D0 19" .. toByteResponse(EngineRPM,2)
+	  end,
+   }
+}
+```
 
 ## A few notes on Lua syntax
 * Comments start with two dashes (--). Everything behind that on the same line will be ignored.
