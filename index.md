@@ -103,7 +103,6 @@ You can use the following function calls inside your dynamic Lua code
 
 * `ascii(string)` – Converts a UTF-8 string into a lexical hexadecimal byte string
 * `sleep(number)` – Sleeps the amount in milliseconds before proceeding any further
-* `sendRaw(string)` – Sends the given raw-string immediately without waiting until the function returns
 
 Furthermore there are some Lua simulation library functions already included and usable.
 Please find code as well as documentation here: https://github.com/AVL-DiTEST-DiagDev/lua-simulation-libraries
