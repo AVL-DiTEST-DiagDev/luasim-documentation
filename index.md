@@ -15,7 +15,7 @@ This page defines the general syntax of the Lua Simulation Format with some prot
 
 Please find more about how to define protocol specific properties in the Lua simulation format here:
 * [ISO-TP protocols (e.g. UDS, KWP)](isotp.md)
-* [J1939](j1939.mc)
+* [J1939](j1939.md)
 
 
 ## Simulation structure
