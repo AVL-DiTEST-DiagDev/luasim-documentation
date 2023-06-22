@@ -25,3 +25,25 @@ PCM = {
     }
 }
 ```
+
+## Sending multiple responses
+In case the simulated ECU would send multiple responses for one specific request, the function `link.send` can be used.
+
+Example:
+
+```lua
+PCM = {
+    RequestId = 0x100,
+    ResponseId = 0x200,
+    RequestFunctionalId = 0x300,
+
+    Raw = {
+        ["10 02"] = "50 02 00 19 01 F4",
+        ["22 FA BC"] = function(request, link)
+            link.send("62 FA BC 10 33 11")
+            link.send("62 FA BC 10 33 12")
+            link.send("62 FA BC 10 33 13")
+        end
+    }
+}
+```
