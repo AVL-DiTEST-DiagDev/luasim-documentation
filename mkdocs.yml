@@ -1,0 +1,10 @@
+site_name: Lua Simulation Format
+repo_url: https://github.com/AVL-DiTEST-DiagDev/luasim-documentation
+site_description: Documentation of the Lua Simulation format used by the CarSimulator
+
+theme:
+  name: readthedocs
+  highlightjs: true
+  include_sidebar: false
+
+docs_dir: docs
