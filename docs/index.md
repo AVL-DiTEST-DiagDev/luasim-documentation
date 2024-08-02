@@ -14,6 +14,7 @@ Find more information about Lua at https://www.lua.org/
 This page defines the general syntax of the Lua Simulation Format with some protocol specific examples.
 
 Please find more about how to define protocol specific properties in the Lua simulation format here:
+
 * [ISO-TP protocols (e.g. UDS, KWP)](isotp.md)
 * [DoIP (UDS)](doip.md)
 * [J1939](j1939.md)
@@ -21,10 +22,12 @@ Please find more about how to define protocol specific properties in the Lua sim
 
 ## Simulation structure
 All simulation files need to have the extension **.lua** to make sure they are detected by the simulation engine.
+
 * A single file can describe one or more ECUs
 * One vehicle simulation can consist of one or multiple simulation files, the engine loads and interprets each one independenly.
 
 A simulation description of an individual ECU is organized as a lua table. It consists of
+
 * a header containing meta information such as ECU addresses
 * One or more protocol specific sub-tabes containing the actual simulation data.
 
