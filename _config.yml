@@ -1,3 +1,4 @@
 theme: jekyll-theme-slate
 title: Lua Simulation Format
-description: Documentation of the Lua Simulation format used by the CarSimulator
+description: Documentation of the Lua Simulation format used by the CarSimulator^
+source: docs
