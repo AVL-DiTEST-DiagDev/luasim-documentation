@@ -3,9 +3,9 @@ The first protocol supported by the Lua Simulation Format is ISO-TP.
 
 The header contains the following fields:
 
-* `CanPhysReqId` – CAN ID for frames directed to the simulated ECU
-* `CanRespUSDTId` - CAN ID for frames directed from the simulated ECU to the tester
-* `CanFuncReqId` - CAN ID for functional request frames
+* `CanPhysReqId` – CAN ID for frames directed to the simulated ECU (Or `RequestId` for backward compatibility )
+* `CanRespUSDTId` - CAN ID for frames directed from the simulated ECU to the tester (Or `ResponseId` for backward compatibility)
+* `CanFuncReqId` - CAN ID for functional request frames (or `RequestFuncitonalId` for backward compatibility)
 * `CanPhysReqExtAddr` - (optional) Extended address for frames directed to the simulated ECU
 * `CanRespUSDTExtAddr` - (optional) Extended address for frames directed from the simulated ECU to the tester
 
