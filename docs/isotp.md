@@ -3,11 +3,13 @@ The first protocol supported by the Lua Simulation Format is ISO-TP.
 
 The header contains the following fields:
 
-* `RequestId` – CAN ID for frames directed to the simulated ECU
-* `ResponseId` - CAN ID for frames directed from the simulated ECU to the tester
-* `RequestFunctionalId` - CAN ID for functional request frames
+* `CanPhysReqId` – CAN ID for frames directed to the simulated ECU
+* `CanRespUSDTId` - CAN ID for frames directed from the simulated ECU to the tester
+* `CanFuncReqId` - CAN ID for functional request frames
+* `CanPhysReqExtAddr` - (optional) Extended address for frames directed to the simulated ECU
+* `CanRespUSDTExtAddr` - (optional) Extended address for frames directed from the simulated ECU to the tester
 
-Currently 11bit and 29bit CAN-IDs can be specified. Extended addressing is not yet defined.
+Currently 11bit and 29bit CAN-IDs can be specified.
 
 Request/Response pairs are defined in a section called "Raw".
 
@@ -15,10 +17,12 @@ Request/Response pairs are defined in a section called "Raw".
 
 ```lua
 PCM = {
-    RequestId = 0x100,
-    ResponseId = 0x200,
-    RequestFunctionalId = 0x300,
-
+    CanPhysReqId = 0x100, -- or RequestId = 0x100,
+    CanRespUSDTId = 0x200, -- or ResponseId = 0x200,
+    CanFuncReqId = 0x300, -- or RequestFunctionalId = 0x300,
+    CanPhysReqExtAddr = 0x10, -- optional
+    CanRespUSDTExtAddr = 0xf1, -- optional
+    
     Raw = {
         ["10 02"] = "50 02 00 19 01 F4",
         ["22 FA BC"] = "62 FA BC 10 33 11",
@@ -33,9 +37,9 @@ Example:
 
 ```lua
 PCM = {
-    RequestId = 0x100,
-    ResponseId = 0x200,
-    RequestFunctionalId = 0x300,
+    CanPhysReqId = 0x100,
+    CanRespUSDTId = 0x200,
+    CanFuncReqId = 0x300,
 
     Raw = {
         ["10 02"] = "50 02 00 19 01 F4",
